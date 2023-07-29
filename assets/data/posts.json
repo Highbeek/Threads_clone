@@ -1,0 +1,134 @@
+{
+  "users": [
+    {
+      "id": "p1",
+      "createdAt": "4 h",
+      "User": {
+        "id": "u1",
+        "image": "https://randomuser.me/api/portraits/women/1.jpg",
+        "name": "Blessing Peter"
+      },
+      "description": "Less time on social media, gratitude",
+      "image": "https://picsum.photos/id/1/200/300",
+      "numberOfLikes": 11,
+      "numberOfReplies": 2
+    },
+    {
+      "id": "p2",
+      "createdAt": "1 h",
+      "User": {
+        "id": "u2",
+        "image": "https://randomuser.me/api/portraits/men/2.jpg",
+        "name": "John Doe"
+      },
+      "description": "Excited to start my new job!",
+      "image": "https://picsum.photos/id/2/200/300",
+      "numberOfLikes": 7,
+      "numberOfReplies": 3
+    },
+    {
+      "id": "p3",
+      "createdAt": "2 h",
+      "User": {
+        "id": "u3",
+        "image": "https://randomuser.me/api/portraits/women/3.jpg",
+        "name": "Jane Smith"
+      },
+      "description": "Enjoying my vacation in the mountains.",
+      "image": "https://picsum.photos/id/3/200/300",
+      "numberOfLikes": 15,
+      "numberOfReplies": 1
+    },
+    {
+      "id": "p4",
+      "createdAt": "3 h",
+      "User": {
+        "id": "u4",
+        "image": "https://randomuser.me/api/portraits/men/4.jpg",
+        "name": "Michael Johnson"
+      },
+      "description": "Just finished a great book!",
+      "image": "https://picsum.photos/id/4/200/300",
+      "numberOfLikes": 9,
+      "numberOfReplies": 0
+    },
+    {
+      "id": "p5",
+      "createdAt": "1 d",
+      "User": {
+        "id": "u5",
+        "image": "https://randomuser.me/api/portraits/women/5.jpg",
+        "name": "Emily Parker"
+      },
+      "description": "Having a fantastic time at the beach!",
+      "image": "https://picsum.photos/id/5/200/300",
+      "numberOfLikes": 21,
+      "numberOfReplies": 5
+    },
+    {
+      "id": "p6",
+      "createdAt": "6 h",
+      "User": {
+        "id": "u6",
+        "image": "https://randomuser.me/api/portraits/men/6.jpg",
+        "name": "David Lee"
+      },
+      "description": "Celebrating my birthday with friends.",
+      "image": "https://picsum.photos/id/6/200/300",
+      "numberOfLikes": 12,
+      "numberOfReplies": 3
+    },
+    {
+      "id": "p7",
+      "createdAt": "2 d",
+      "User": {
+        "id": "u7",
+        "image": "https://randomuser.me/api/portraits/women/7.jpg",
+        "name": "Sophia Johnson"
+      },
+      "description": "Grateful for the simple things in life.",
+      "image": "https://picsum.photos/id/7/200/300",
+      "numberOfLikes": 17,
+      "numberOfReplies": 2
+    },
+    {
+      "id": "p8",
+      "createdAt": "5 h",
+      "User": {
+        "id": "u8",
+        "image": "https://randomuser.me/api/portraits/men/8.jpg",
+        "name": "Daniel Williams"
+      },
+      "description": "Trying out a new recipe for dinner.",
+      "image": "https://picsum.photos/id/8/200/300",
+      "numberOfLikes": 14,
+      "numberOfReplies": 4
+    },
+    {
+      "id": "p9",
+      "createdAt": "1 d",
+      "User": {
+        "id": "u9",
+        "image": "https://randomuser.me/api/portraits/women/9.jpg",
+        "name": "Olivia Smith"
+      },
+      "description": "Spending quality time with family.",
+      "image": "https://picsum.photos/id/9/200/300",
+      "numberOfLikes": 10,
+      "numberOfReplies": 1
+    },
+    {
+      "id": "p10",
+      "createdAt": "3 d",
+      "User": {
+        "id": "u10",
+        "image": "https://randomuser.me/api/portraits/men/10.jpg",
+        "name": "Ethan Johnson"
+      },
+      "description": "Exploring new hiking trails.",
+      "image": "https://picsum.photos/id/10/200/300",
+      "numberOfLikes": 8,
+      "numberOfReplies": 0
+    }
+  ]
+}
