@@ -1,15 +1,25 @@
 import React from "react";
-import { View, Text, Image } from "react-native";
-
+import { View, Text, Image, ScrollView, FlatList } from "react-native";
+import posts from "../../assets/data/posts.json";
 import { styles } from "../styles/styles";
-import Posts from "../components/Posts";
+import FeedPost from "../components/FeedPost";
 
 export default function HomeScreen() {
+  if (!posts || posts.length === 0) {
+    return (
+      <View>
+        <Text>Loading...</Text>
+      </View>
+    );
+  }
+
   return (
     <View style={styles.homeContainer}>
-     <Posts/>
-     <Posts/>
-     <Posts/>
+      <FlatList
+        data={posts.users}
+        renderItem={({ item }) => <FeedPost post={item} />}
+        keyExtractor={(item) => item.id}
+      />
     </View>
   );
 }
