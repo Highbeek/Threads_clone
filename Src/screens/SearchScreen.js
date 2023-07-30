@@ -6,6 +6,7 @@ import {
   StyleSheet,
   TouchableOpacity,
   Image,
+  ScrollView,
 } from "react-native";
 import { EvilIcons } from "@expo/vector-icons";
 
@@ -44,40 +45,57 @@ const followers = [
 
 export default function SearchScreen() {
   const [description, setDescription] = useState("");
+  const [scrollY, setScrollY] = useState(0);
+   const [isSearchHidden, setIsSearchHidden] = useState(false);
+
+
+ const handleScroll = (event) => {
+   const scrollPosition = event.nativeEvent.contentOffset.y;
+   setScrollY(scrollPosition);
+
+   // Hide the search input when scrolling and search text is empty
+   setIsSearchHidden(scrollPosition > 10 && description === "");
+ };
+
   return (
     <View style={styles.searchContainer}>
-      <View style={styles.SearchHeader}>
+      <View style={[styles.SearchHeader, { opacity: isSearchHidden ? 0 : 1 }]}>
         <Text style={styles.searchText}>Search</Text>
       </View>
-      <View style={styles.searchInput}>
+      <View
+        style={[styles.searchInput, isSearchHidden && styles.fixedSearchInput]}
+      >
         <EvilIcons name="search" size={24} color="gray" />
         <TextInput
           value={description}
           onChangeText={setDescription}
           placeholder="Search"
-          multiline
         />
       </View>
-      <View style={styles.follows}>
+      <ScrollView
+        style={styles.follows}
+        onScroll={handleScroll}
+        scrollEventThrottle={16}
+      >
         {followers.map((item) => (
           <View key={item.username}>
             <View style={styles.followerDetails}>
               <Image
-                src={item.profileImage}
+                source={{ uri: item.profileImage }}
                 style={styles.followerProfileImage}
               />
               <View style={styles.followDetails}>
-                <Text style={styles.username}>{item.username} </Text>
+                <Text style={styles.username}>{item.username}</Text>
                 <Text style={styles.name}>{item.name}</Text>
-                <Text>{item.noOfFollowers} followers </Text>
+                <Text>{item.noOfFollowers} followers</Text>
               </View>
               <TouchableOpacity style={styles.btn}>
-                <Text style={styles.btnText}> Follow</Text>
+                <Text style={styles.btnText}>Follow</Text>
               </TouchableOpacity>
             </View>
           </View>
         ))}
-      </View>
+      </ScrollView>
     </View>
   );
 }
@@ -103,6 +121,7 @@ const styles = StyleSheet.create({
   follows: {},
   followDetails: {
     paddingLeft: 20,
+    gap: 5,
   },
   followerDetails: {
     flexDirection: "row",
@@ -115,14 +134,27 @@ const styles = StyleSheet.create({
     borderRadius: 50,
   },
   username: {},
-  name: {},
+  name: {
+    marginBottom: 10,
+  },
+  noOfFollowers: {},
   btn: {
-    borderWidth: StyleSheet.hairlineWidth,
+    borderWidth: 1,
     marginLeft: "auto",
     alignItems: "center",
     justifyContent: "center",
     paddingHorizontal: 30,
-    paddingVertical: 3,
+    paddingVertical: 8,
     borderRadius: 10,
+    alignSelf: "flex-start",
+  },
+  btnText: {
+    fontWeight: "600",
+  },
+  fixedSearchInput: {
+    position: "sticky",
+    top: 0,
+    zIndex: 1,
+    elevation: 1,
   },
 });
