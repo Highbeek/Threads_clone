@@ -14,7 +14,7 @@ export default function HomeScreen() {
   }
 
   return (
-    <View style={styles.homeContainer}>
+    <View style={styles.container}>
       <FlatList
         data={posts.users}
         renderItem={({ item }) => <FeedPost post={item} />}
