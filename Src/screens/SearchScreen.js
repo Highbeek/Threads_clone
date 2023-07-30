@@ -10,6 +10,7 @@ import {
 } from "react-native";
 import { EvilIcons } from "@expo/vector-icons";
 
+
 const followers = [
   {
     profileImage: "https://randomuser.me/api/portraits/women/1.jpg",

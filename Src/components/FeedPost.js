@@ -89,7 +89,7 @@ export default function FeedPost({ post }) {
 
 const styles = StyleSheet.create({
   post: {
-    marginTop: 50,
+    marginTop:10,
     flexDirection: "row",
     width: "auto",
     borderBottomWidth: StyleSheet.hairlineWidth,

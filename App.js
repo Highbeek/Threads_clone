@@ -1,5 +1,5 @@
 // index
-import React from "react";
+import React, { useState } from "react";
 import { StyleSheet, View } from "react-native";
 import { NavigationContainer, useNavigation } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
@@ -9,6 +9,7 @@ import SearchScreen from "./Src/screens/SearchScreen";
 import ProfileScreen from "./Src/screens/ProfileScreen";
 import CreatePostScreen from "./Src/screens/CreatePostScreen";
 import BottomNavigation from "./Src/navigation/BottomNavigation";
+import LogoHeader from "./Src/components/LogoHeader";
 
 export default function Index() {
   const Stack = createNativeStackNavigator();
@@ -21,6 +22,9 @@ export default function Index() {
             name="Home"
             component={HomeScreen}
             options={{ headerShown: false }}
+            // options={{
+            //   headerTitle: () => <LogoHeader />,
+            // }}
           />
           <Stack.Screen
             name="Search"

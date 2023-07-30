@@ -3,11 +3,21 @@ import { StyleSheet, View, Text, Image, Pressable } from "react-native";
 import { Fontisto, Entypo } from "@expo/vector-icons";
 import menu from "../../assets/menu.png";
 import { useRouter, Link } from "expo-router";
+import { useNavigation } from "@react-navigation/native";
+import ThreadsTab from "../components/ThreadsTab";
+import RepliesTab from "../components/RepliesTab";
 
 const profileImage = "https://randomuser.me/api/portraits/women/9.jpg";
 
 export default function ProfileScreen() {
+  const navigation = useNavigation();
   const [activeTab, setActiveTab] = useState("Threads");
+
+
+
+  const handleTabPress = (tab) => {
+    setActiveTab(tab);
+  };
 
   const pageTitleStyle = (tabName) => ({
     fontSize: 18,
@@ -56,11 +66,14 @@ export default function ProfileScreen() {
         </Pressable>
       </View>
       <View style={styles.profilePage}>
-        <Text style={pageTitleStyle("Threads")}>Threads</Text>
-        <Link href="/RepliesTab" style={pageTitleStyle("Replies")}>
-          Replies
-        </Link>
+        <Pressable onPress={() => handleTabPress("Threads")}>
+          <Text style={pageTitleStyle("Threads")}>Threads</Text>
+        </Pressable>
+        <Pressable onPress={() => handleTabPress("Replies")}>
+          <Text style={pageTitleStyle("Replies")}>Replies</Text>
+        </Pressable>
       </View>
+      {activeTab === "Threads" ? <ThreadsTab /> : <RepliesTab />}
     </View>
   );
 }
