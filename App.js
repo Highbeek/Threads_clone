@@ -10,21 +10,20 @@ import ProfileScreen from "./Src/screens/ProfileScreen";
 import CreatePostScreen from "./Src/screens/CreatePostScreen";
 import BottomNavigation from "./Src/navigation/BottomNavigation";
 import LogoHeader from "./Src/components/LogoHeader";
+import { Provider } from "react-redux";
+import { store } from "./store";
 
 export default function Index() {
   const Stack = createNativeStackNavigator();
 
   return (
-    <View style={styles.container}>
+    <Provider store={store} style={styles.container}>
       <NavigationContainer>
         <Stack.Navigator>
           <Stack.Screen
             name="Home"
             component={HomeScreen}
             options={{ headerShown: false }}
-            // options={{
-            //   headerTitle: () => <LogoHeader />,
-            // }}
           />
           <Stack.Screen
             name="Search"
@@ -49,7 +48,7 @@ export default function Index() {
         </Stack.Navigator>
         <BottomNavigation />
       </NavigationContainer>
-    </View>
+    </Provider>
   );
 }
 
