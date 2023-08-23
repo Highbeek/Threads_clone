@@ -1,11 +1,11 @@
-import { View, Text, TextInput, Button, StyleSheet } from "react-native";
 import React, { useState } from "react";
+import { View, Text, TextInput, Button, StyleSheet } from "react-native";
 import { useDispatch } from "react-redux";
 import { addPost } from "../slices/userSlice";
 
 export default function CreatePostScreen({ navigation }) {
-  const dispatch = useDispatch();
   const [newPostText, setNewPostText] = useState("");
+  const dispatch = useDispatch();
 
   const handleAddPost = () => {
     if (newPostText.trim() !== "") {
@@ -39,8 +39,7 @@ export default function CreatePostScreen({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
+    backgroundColor: "white",
+    padding: 20,
   },
 });
