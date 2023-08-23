@@ -1,6 +1,8 @@
 import { createSlice, nanoid } from "@reduxjs/toolkit";
 
 const initialState = {
+  isLoggedIn: false,
+  user: null,
   posts: [],
 };
 
@@ -8,6 +10,14 @@ export const userSlice = createSlice({
   name: "user",
   initialState,
   reducers: {
+    login: (state, action) => {
+      state.isLoggedIn = true;
+      state.user = action.payload;
+    },
+    logout: (state) => {
+      state.isLoggedIn = false;
+      state.user = null;
+    },
     addPost: (state, action) => {
       const newPost = {
         id: nanoid(),
@@ -33,6 +43,7 @@ export const userSlice = createSlice({
   },
 });
 
-export const { addPost, deletePost, editPost } = userSlice.actions;
+export const { login, logout, addPost, deletePost, editPost } =
+  userSlice.actions;
 
 export default userSlice.reducer;

@@ -9,7 +9,7 @@ import {
   ScrollView,
 } from "react-native";
 import { EvilIcons } from "@expo/vector-icons";
-
+import { styles } from "../styles/styles";
 
 const followers = [
   {
@@ -47,16 +47,13 @@ const followers = [
 export default function SearchScreen() {
   const [description, setDescription] = useState("");
   const [scrollY, setScrollY] = useState(0);
-   const [isSearchHidden, setIsSearchHidden] = useState(false);
+  const [isSearchHidden, setIsSearchHidden] = useState(false);
 
-
- const handleScroll = (event) => {
-   const scrollPosition = event.nativeEvent.contentOffset.y;
-   setScrollY(scrollPosition);
-
-   // Hide the search input when scrolling and search text is empty
-   setIsSearchHidden(scrollPosition > 10 && description === "");
- };
+  const handleScroll = (event) => {
+    const scrollPosition = event.nativeEvent.contentOffset.y;
+    setScrollY(scrollPosition);
+    setIsSearchHidden(scrollPosition > 10 && description === "");
+  };
 
   return (
     <View style={styles.searchContainer}>
@@ -101,61 +98,3 @@ export default function SearchScreen() {
   );
 }
 
-const styles = StyleSheet.create({
-  searchContainer: {
-    marginTop: 50,
-    marginHorizontal: 20,
-  },
-  header: {},
-  searchText: {
-    fontSize: 38,
-    fontWeight: "900",
-  },
-  searchInput: {
-    flexDirection: "row",
-    marginVertical: 8,
-    backgroundColor: "#ccc",
-    paddingVertical: 10,
-    paddingHorizontal: 5,
-    borderRadius: 10,
-  },
-  follows: {},
-  followDetails: {
-    paddingLeft: 20,
-    gap: 5,
-  },
-  followerDetails: {
-    flexDirection: "row",
-    paddingVertical: 15,
-    borderBottomWidth: StyleSheet.hairlineWidth,
-  },
-  followerProfileImage: {
-    width: 40,
-    height: 40,
-    borderRadius: 50,
-  },
-  username: {},
-  name: {
-    marginBottom: 10,
-  },
-  noOfFollowers: {},
-  btn: {
-    borderWidth: 1,
-    marginLeft: "auto",
-    alignItems: "center",
-    justifyContent: "center",
-    paddingHorizontal: 30,
-    paddingVertical: 8,
-    borderRadius: 10,
-    alignSelf: "flex-start",
-  },
-  btnText: {
-    fontWeight: "600",
-  },
-  fixedSearchInput: {
-    position: "sticky",
-    top: 0,
-    zIndex: 1,
-    elevation: 1,
-  },
-});

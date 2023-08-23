@@ -11,17 +11,20 @@ import {
 } from "react-native";
 import { useDispatch } from "react-redux";
 import { Entypo } from "@expo/vector-icons";
-import { addPost } from "../slices/userSlice";
+import { addPost } from "../slices/postsSlice"
 import * as ImagePicker from "expo-image-picker";
 import { Video } from "expo-av";
 import CancelAlert from "../components/CancelAlert";
 import { styles } from "../styles/styles";
+import { useSelector } from "react-redux";
 
 export default function CreatePostScreen({ navigation }) {
   const [selectedImage, setSelectedImage] = useState(null);
-
   const [newPostText, setNewPostText] = useState("");
   const dispatch = useDispatch();
+
+   const user = useSelector((state) => state.user.user);
+
 
   const handleImagePicker = async () => {
     try {
@@ -72,14 +75,12 @@ export default function CreatePostScreen({ navigation }) {
         <View style={styles.postContainer}>
           <View>
             <Image
-              source={{
-                uri: "https://randomuser.me/api/portraits/women/1.jpg",
-              }}
+              source={{ uri: user.profileImage }}
               style={{ width: 34, height: 34, borderRadius: 100 }}
             />
           </View>
           <View style={styles.newPost}>
-            <Text style={styles.user}>highbbek</Text>
+            <Text style={styles.user}>{user.threadUsername} </Text>
             <TextInput
               placeholder="Start a thread..."
               multiline={true}
@@ -120,4 +121,3 @@ export default function CreatePostScreen({ navigation }) {
     </View>
   );
 }
-
