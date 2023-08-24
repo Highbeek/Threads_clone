@@ -1,4 +1,4 @@
-# 🚀 Threads App Clone (Working on this)
+# 🚀 Threads App Clone (IN VIEW)
 The Threads App Clone replicates the functionality of a popular social media platform, enabling users to share and explore posts. With this clone, users can create threads, follow others, and stay engaged with captivating content.
 
 ## 📋 Project Description
@@ -27,7 +27,8 @@ This project was designed and developed by Highbeek. Special thanks to the origi
 ## 📝 Feedback and Contributions
 Feedback and suggestions for improvements are highly appreciated. Contributions to the project are also welcome! Please create an issue or submit a pull request if you would like to contribute to the Threads App Clone.
 ## Test Credentials
-Here are some test credentials you can use to log in and explore:(before I add a real auth)
+Here are some test credentials you can use to log in and explore:(before I add a real auth).
+Please be aware that the profile pictures used in this app are for illustrative purposes only and are not associated with any real users. These images are sourced from publicly available libraries and are meant to enhance the visual experience of the app. They do not reflect the identities of any actual individuals. Thank you for understanding.
 ### User 1
 - Username: Mr Flex
 - Password: ghi
