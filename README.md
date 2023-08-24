@@ -1,4 +1,4 @@
-# 🚀 Threads App Clone
+# 🚀 Threads App Clone (Working on this)
 The Threads App Clone replicates the functionality of a popular social media platform, enabling users to share and explore posts. With this clone, users can create threads, follow others, and stay engaged with captivating content.
 
 ## 📋 Project Description
@@ -15,7 +15,7 @@ To run the Threads App Clone locally on your development environment, follow the
 Clone the repository: git clone [repository-url]
 Install the dependencies: npm install or yarn install
 Start the development server: npm start or yarn start
-Run the app on an emulator/simulator or a physical device using Expo Go app.
+Run the app on an emulator/simulator or a physical device using the Expo Go app.
 ##⚙️ Technologies Used
 
 React Native: The core framework for building the mobile app, providing a cross-platform development environment.
@@ -26,5 +26,18 @@ This project was designed and developed by Highbeek. Special thanks to the origi
 
 ## 📝 Feedback and Contributions
 Feedback and suggestions for improvements are highly appreciated. Contributions to the project are also welcome! Please create an issue or submit a pull request if you would like to contribute to the Threads App Clone.
+## Test Credentials
+Here are some test credentials you can use to log in and explore:(before I add a real auth)
+### User 1
+- Username: Mr Flex
+- Password: ghi
+
+### User 2
+- Username: Emilokan
+- Password: jkl
+
+### User 3
+- Username: OnGod
+- Password: sty
 
 Note: This project is a clone and intended for educational purposes only. It is not affiliated with the official social media platform or its developers.
