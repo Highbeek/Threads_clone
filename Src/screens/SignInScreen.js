@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { View, TextInput, Button, StyleSheet } from "react-native";
-import { useDispatch, useSelector } from "react-redux";
+import { View, TextInput, Button, StyleSheet, Alert, Text } from "react-native";
+import { useDispatch } from "react-redux";
 import { useNavigation } from "@react-navigation/native";
 import { login } from "../slices/userSlice";
 import users from "../../assets/data/user";
@@ -8,9 +8,9 @@ import users from "../../assets/data/user";
 export default function SignInScreen() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
   const dispatch = useDispatch();
   const navigation = useNavigation();
-  const isLoggedIn = useSelector((state) => state.user.isLoggedIn);
 
   const handleSignIn = () => {
     const user = users.find(
@@ -21,10 +21,9 @@ export default function SignInScreen() {
       dispatch(login(user));
       setUsername("");
       setPassword("");
-      navigation.navigate("MainApp"); // Navigate immediately
+      navigation.navigate("MainApp");
     } else {
-      // Handle invalid credentials, show an error message, etc.
-      console.log("Invalid credentials");
+      setErrorMessage("Invalid username or password");
     }
   };
 
@@ -45,6 +44,12 @@ export default function SignInScreen() {
           onChangeText={setPassword}
         />
         <Button title="Sign In" onPress={handleSignIn} />
+        {errorMessage ? (
+          <View style={styles.error}>
+            <Text style={styles.errorMessage}>{errorMessage}</Text>
+            <Text style={styles.errorMessage}>Try again</Text>
+          </View>
+        ) : null}
       </View>
     </View>
   );
@@ -67,5 +72,15 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: "#ccc",
     borderRadius: 5,
+  },
+  error: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: 10,
+  },
+  errorMessage: {
+    color: "red",
+    marginTop: 10,
   },
 });

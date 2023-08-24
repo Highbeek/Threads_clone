@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   View,
   Text,
@@ -10,7 +10,6 @@ import {
 import { Octicons } from "@expo/vector-icons";
 import users from "../../assets/data/user";
 import { styles } from "../styles/styles";
-
 const links = [
   { name: "All" },
   { name: "Follows" },
@@ -22,6 +21,12 @@ const links = [
 ];
 
 export default function ActivityScreen() {
+  const [activeButton, setActiveButton] = useState("All");
+
+  const handleButtonClick = (buttonName) => {
+    setActiveButton(buttonName);
+  };
+
   return (
     <View style={styles.actContainer}>
       <Text style={styles.activityHeader}>Activity</Text>
@@ -31,8 +36,22 @@ export default function ActivityScreen() {
         style={styles.linksContainer}
       >
         {links.map((item) => (
-          <TouchableOpacity key={item.name} style={styles.activityBtn}>
-            <Text style={styles.btnText}>{item.name}</Text>
+          <TouchableOpacity
+            key={item.name}
+            style={[
+              styles.activityBtn,
+              activeButton === item.name && styles.activeButton,
+            ]}
+            onPress={() => handleButtonClick(item.name)}
+          >
+            <Text
+              style={[
+                styles.btnText,
+                activeButton === item.name && styles.activeButtonText,
+              ]}
+            >
+              {item.name}
+            </Text>
           </TouchableOpacity>
         ))}
       </ScrollView>
@@ -47,28 +66,31 @@ export default function ActivityScreen() {
           Get notified when people follow you and like or reply to your posts.
         </Text>
         <TouchableOpacity style={styles.notificationBtn}>
-          <Text style={styles.notText}>Turn On</Text>
+          <Text>Turn On</Text>
         </TouchableOpacity>
       </View>
-      <ScrollView>
-        {users.map((user, index) => (
-          <View key={index} style={styles.userContainer}>
-            <Image
-              source={{ uri: user.profileImage }}
-              style={styles.profileImage}
-            />
-            <View style={styles.userdetails}>
-              <View style={styles.usern}>
-                <Text style={styles.username}>{user.username}</Text>
-                <Text style={styles.followDay}>{user.followDay} ago</Text>
+      <ScrollView showsVerticalScrollIndicator={false}>
+        {activeButton === "All" &&
+          
+          users.map((user, index) => (
+            <View key={index} style={styles.userContainer}>
+              <Image
+                source={{ uri: user.profileImage }}
+                style={styles.profileImage}
+              />
+              <View style={styles.userdetails}>
+                <View style={styles.usern}>
+                  <Text style={styles.username}>{user.username}</Text>
+                  <Text style={styles.followDay}>{user.followDay} ago</Text>
+                </View>
+                <Text>{user.status}</Text>
               </View>
-              <Text>{user.status}</Text>
+              <TouchableOpacity style={styles.followBtn}>
+                <Text style={styles.followBtnText}>Follow</Text>
+              </TouchableOpacity>
             </View>
-            <TouchableOpacity style={styles.followBtn}>
-              <Text style={styles.followBtnText}>Follow</Text>
-            </TouchableOpacity>
-          </View>
-        ))}
+          ))}
+        {/* Repeat similar structure for other buttons */}
       </ScrollView>
     </View>
   );

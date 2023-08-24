@@ -62,7 +62,6 @@ export const styles = StyleSheet.create({
   inputTxt: {
     fontSize: 16,
     marginBottom: 10,
-   
   },
   attachContainer: {
     flexDirection: "row",
@@ -79,23 +78,30 @@ export const styles = StyleSheet.create({
     fontSize: 40,
     fontWeight: "700",
     marginHorizontal: 10,
+    marginVertical:10
   },
   linksContainer: {
     marginLeft: 10,
   },
   activityBtn: {
-    borderWidth: 1,
-    paddingHorizontal: 25,
+    borderWidth: StyleSheet.hairlineWidth,
     paddingVertical: 10,
+    paddingHorizontal: 20,
     marginRight: 10,
     borderRadius: 10,
-    marginVertical: 10,
-    width: 120,
     alignItems: "center",
+    justifyContent: "center",
+    minWidth: 100,
   },
-  btnText: {
-    fontWeight: "600",
+
+  activeButton: {
+    backgroundColor: "#000",
   },
+  activeButtonText: {
+    color: "#fff",
+    fontWeight: "bold",
+  },
+
   notification: {
     flexDirection: "row",
     marginHorizontal: 10,
