@@ -90,7 +90,7 @@ export default function ActivityScreen() {
               </TouchableOpacity>
             </View>
           ))}
-        {/* Repeat similar structure for other buttons */}
+       
       </ScrollView>
     </View>
   );

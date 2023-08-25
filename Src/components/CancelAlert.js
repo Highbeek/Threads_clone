@@ -1,14 +1,16 @@
 import React from "react";
 import { View, Text, Alert, Pressable } from "react-native";
 
-const CancelAlert = () => {
+const CancelAlert = ({ closeCreatePostModal }) => {
   const CancelHandler = () => {
     Alert.alert(
-      "Discard Thread?","",
+      "Discard Thread?",
+      "",
       [
         {
           text: "Discard",
           onPress: () => {
+            closeCreatePostModal();
             console.log("Discard Pressed");
           },
           style: "destructive",

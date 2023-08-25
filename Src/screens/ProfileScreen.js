@@ -43,7 +43,7 @@ export default function ProfileScreen() {
       <View style={styles.profile}>
         <View style={styles.profileText}>
           <Text style={styles.profileUsername}>{user.threadUsername} </Text>
-          <Text style={styles.threadUsername}>{user.profileUsername} </Text>
+          <Text style={styles.threadUsername}>{user.username} </Text>
           <Text style={styles.bio}>Simplicity Speaks Volume</Text>
         </View>
         <Image source={{ uri: user.profileImage }} style={styles.profileImage} />

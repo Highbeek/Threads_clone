@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   View,
   Text,
@@ -6,25 +6,29 @@ import {
   Button,
   StyleSheet,
   Image,
+  Modal,
   Alert,
   Pressable,
 } from "react-native";
 import { useDispatch } from "react-redux";
 import { Entypo } from "@expo/vector-icons";
-import { addPost } from "../slices/postsSlice"
+import { addPost } from "../slices/postsSlice";
 import * as ImagePicker from "expo-image-picker";
 import { Video } from "expo-av";
 import CancelAlert from "../components/CancelAlert";
 import { styles } from "../styles/styles";
 import { useSelector } from "react-redux";
 
-export default function CreatePostScreen({ navigation }) {
+export default function CreatePostScreen({
+  navigation,
+  isModalVisible,
+  closeCreatePostModal,
+}) {
   const [selectedImage, setSelectedImage] = useState(null);
   const [newPostText, setNewPostText] = useState("");
   const dispatch = useDispatch();
 
-   const user = useSelector((state) => state.user.user);
-
+  const user = useSelector((state) => state.user.user);
 
   const handleImagePicker = async () => {
     try {
@@ -60,14 +64,20 @@ export default function CreatePostScreen({ navigation }) {
       dispatch(addPost(newPostData));
       setSelectedImage(null);
       setNewPostText("");
-      navigation.goBack();
+      closeCreatePostModal();
     }
   };
 
   return (
-    <View style={styles.container}>
-      <View style={styles.titleContainer}>
-        <CancelAlert />
+    <Modal
+      style={styles.container}
+      visible={isModalVisible}
+      onRequestClose={closeCreatePostModal}
+      animationType="slide"
+      presentationStyle="pageSheet"
+    >
+      <View style={[styles.titleContainer, { paddingTop: 30 }]}>
+        <CancelAlert closeCreatePostModal={closeCreatePostModal} />
 
         <Text style={styles.titleText}>New Thread</Text>
       </View>
@@ -118,6 +128,6 @@ export default function CreatePostScreen({ navigation }) {
         </View>
         <Button title="Add Post" onPress={handleAddPost} />
       </View>
-    </View>
+    </Modal>
   );
 }

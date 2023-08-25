@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, TextInput, Button, StyleSheet, Alert, Text } from "react-native";
+import { View, TextInput, Button, StyleSheet, Text } from "react-native";
 import { useDispatch } from "react-redux";
 import { useNavigation } from "@react-navigation/native";
 import { login } from "../slices/userSlice";
@@ -22,6 +22,7 @@ export default function SignInScreen() {
       setUsername("");
       setPassword("");
       navigation.navigate("MainApp");
+      console.error("error");
     } else {
       setErrorMessage("Invalid username or password");
     }
